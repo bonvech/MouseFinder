@@ -1,0 +1,26 @@
+# Зависимости проекта «Анализ движений мыши» (project.py)
+# Установка: python3 -m pip install -r requirements.txt
+#
+# Здесь перечислены только СТОРОННИЕ пакеты. Из стандартной библиотеки
+# используются sys, os, math (as m), datetime и copy — их указывать не надо.
+#
+# Соответствие «имя при импорте -> пакет»:
+#   from PyQt6.QtWidgets / QtCore / QtGui  ->  PyQt6
+#                     (PyQt6-Qt6 и PyQt6-sip подтянутся автоматически)
+#   import cv2                             ->  opencv-python
+#   import numpy as np                     ->  numpy
+
+# Графический интерфейс: главное окно, диалоги, кнопки, QApplication.
+# Версия из виртуального окружения проекта /home/alena/SIT/env.
+PyQt6==6.6.1
+
+# Захват видео, поиск контуров, окна, ползунки и обработка кликов (модуль cv2).
+# ВАЖНО: нужен именно обычный opencv-python, а НЕ opencv-python-headless:
+# программа вызывает cv2.imshow / namedWindow / createTrackbar /
+# setMouseCallback / waitKey, то есть требует поддержки GUI.
+# Диапазон 4.9–4.10 совместим с numpy 1.26 и Python 3.12.
+opencv-python>=4.9.0,<4.11
+
+# Массивы пикселей, маски и вычисления (np.zeros, np.array).
+# Версия из окружения проекта; ограничение <2 важно для связки с opencv 4.9–4.10.
+numpy==1.26.4
